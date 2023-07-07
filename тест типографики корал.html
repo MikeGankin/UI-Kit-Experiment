@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+		integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<title>Тест Ui-Kit</title>
+</head>
+
+<body>
+	<style>
+		@font-face {
+			src: url("https://font.static.useinsider.com/coraltravel/museosanscyrl-900-webfont.ttf");
+			font-family: "museosans";
+			font-weight: 900;
+		}
+
+		@font-face {
+			src: url("https://font.static.useinsider.com/coraltravel/museosanscyrl-700-webfont.ttf");
+			font-family: "museosans";
+			font-weight: bold;
+		}
+
+		@font-face {
+			src: url("https://font.static.useinsider.com/coraltravel/museosanscyrl-500-webfont.ttf");
+			font-family: "museosans";
+			font-weight: normal;
+		}
+
+		@font-face {
+			src: url("https://font.static.useinsider.com/coraltravel/museosanscyrl-300-webfont.ttf");
+			font-family: "museosans";
+			font-weight: 300;
+		}
+
+		:root {
+			--conntenu-padding-x: 15px;
+			--contenu-padding-y: clamp(5.00rem, calc(4.29rem + 3.57vw), 7.50rem);
+			--coral-font: "museosans", sans-serif;
+			--h1: clamp(2.00rem, calc(1.71rem + 1.43vw), 3.00rem);
+			--h2: clamp(1.5rem, calc(1.21rem + 1.43vw), 2.5rem);
+			--h3: clamp(1.50rem, calc(1.36rem + .71vw), 2.00rem);
+
+			/* 20.00px → 40.00px */
+			--p: clamp(.88rem, calc(.77rem + .54vw), 1.25rem);
+
+			--button-font: 1rem;
+			--coral-main-yellow: #F0AB00;
+			--coral-main-yellow-accent: #E27300;
+			--coral-main-blue: #0093D0;
+			--coral-main-blue-accent: #0067B5;
+			--coral-ramp-bg: linear-gradient(45.62deg, #FB7099 0%, #F0AB13 100%);
+			--coral-hero-title: #033870;
+			--coral-common-black: #000;
+			--coral-common-white: #FFF;
+			--coral-grey: #777;
+			--coral-page-bg: #EAF3FB;
+			--coral-href: #1EBDFF;
+			--coral-green-accent: #8ACB00;
+			--coral-green-lite: #D0EA99;
+			--coral-yellow-lite: #EFD48F;
+			--coral-red-error: #F33;
+			--coral-red-warn: #FFDCDC;
+			--transiton: .3s ease;
+		}
+
+		*,
+		*::before,
+		*::after {
+			box-sizing: border-box;
+		}
+
+		body {
+			overflow-x: hidden;
+		}
+
+		section {
+			max-width: 1920px;
+		}
+
+		/* .px2rem(@attr: width; @size: 16) {
+			.get-values(length(@size));
+
+			.get-values(@s, @i: 1) when (@i =< length(@size)) {
+				@value: extract(@size, @i);
+
+				& when not(@value =0) {
+					@{attr}+_: unit(@value / 16, rem);
+				}
+
+				& when (@value =0) {
+					@{attr}+_: 0;
+				}
+
+				.get-values(@s, @i + 1);
+			}
+		} */
+
+		.aspect-ratio--16-9 {
+			position: relative;
+			height: 700px;
+		}
+
+		.aspect-ratio--16-9::after {
+			content: "";
+			width: 100%;
+			top: 0;
+			left: 0;
+			position: absolute;
+			display: block;
+			padding-top: 51.3355%;
+		}
+
+		.contenu {
+			padding-inline: var(--conntenu-padding-x);
+			padding-block: calc(var(--contenu-padding-y) / 2);
+			margin-inline: auto;
+			max-width: calc(1440px - calc(var(--conntenu-padding-x) * 2));
+			outline: 1px solid red;
+		}
+
+		h2 {
+			margin: 0;
+			margin-bottom: 40px;
+			font-size: var(--h2);
+			font-family: var(--coral-font);
+			font-weight: 600;
+			line-height: 1;
+			text-align: center;
+		}
+
+		p {
+			margin-block: 0;
+			font-size: var(--p);
+			font-family: var(--coral-font);
+			font-weight: 400;
+			line-height: 1.5;
+			text-align: center;
+		}
+
+		h3 {
+			font-size: var(--h3);
+			font-family: var(--coral-font);
+			font-weight: 600;
+			text-align: center;
+		}
+
+		p.subtitle {
+			font-size: calc(var(--p) / 1.4);
+			font-family: var(--coral-font);
+			font-weight: 400;
+			text-align: center;
+		}
+
+		span {
+			font-family: var(--coral-font);
+		}
+
+		.coral-button {
+			padding-inline: 24px;
+			padding-block: 17px;
+			width: fit-content;
+			margin: 0;
+			padding-block: 1em;
+			padding-inline: 1.5em;
+			transition: background-color var(--transiton), transform var(--transiton);
+			background-color: var(--coral-main-yellow);
+			cursor: pointer;
+			border: none;
+			border-radius: 8px;
+			font-size: var(--button-font);
+			font-family: var(--coral-font);
+			font-weight: 600;
+			line-height: 1;
+			color: var(--coral-common-white);
+			text-transform: uppercase;
+			letter-spacing: .05rem;
+		}
+
+		@media (hover:hover) {
+			.coral-button:hover {
+				background-color: var(--coral-main-yellow-accent);
+			}
+		}
+
+		.coral-button:active {
+			transform: translateY(3px);
+		}
+
+		.underbrow {
+			background: url(https://cdn.coral.ru/content/img/for_page_egypt_4_5.jpg) 50% / cover no-repeat;
+		}
+	</style>
+	<section class="kv underbrow">
+		<article class="aspect-ratio--16-9">
+			<div class="contenu">
+				<h1>Я классный заголовок</h1>
+				<p>Я текст под заголовком</p>
+				<!-- <ul class="kv__benefits kv-benefits">
+					<li class="kv-benefits__item">
+						<div class="kv-benefits__icon">
+							svg
+						</div>
+
+					</li>
+				</ul> -->
+			</div>
+		</article>
+	</section>
+	<section class="hero">
+		<article>
+			<div class="contenu">
+				<h2>Полетная программа</h2>
+				<p>
+					Турция славится роскошными отелями с&nbsp;безупречным сервисом, на&nbsp;который равняются во&nbsp;всем мире.
+					На&nbsp;отдыхе
+					в&nbsp;элитном отёле вы&nbsp;особенный гость. Персонал трепетно охраняет ваше спокойствие и&nbsp;быстро
+					и&nbsp;незаметно исполняет
+					пожелания. Интерьеры выполнены в&nbsp;изысканном стиле и&nbsp;наполнены эстетикой в&nbsp;каждой детали.
+					В&nbsp;ресторанах готовят
+					блюда высокой кухни, а&nbsp;контингент отдыхающих&nbsp;&mdash; состоятельные люди. Выбирайте подходящий для
+					вас отель из&nbsp;нашей
+					подборки премиальных отелей на&nbsp;Средиземном и&nbsp;Эгейском побережьях Турции и&nbsp;получайте 5000
+					бонусов CoralBonus
+					в&nbsp;подарок!
+				</p>
+			</div>
+		</article>
+	</section>
+	<section class="benefits">
+		<style>
+			.benefits__grid {
+				--gap: 2rem;
+				display: flex;
+				justify-content: space-between;
+				gap: var(--gap);
+				margin-inline: auto;
+				max-width: 1100px;
+			}
+
+			@media (max-width: 786px) {
+				.benefits__grid {
+					flex-wrap: wrap;
+					justify-content: center;
+				}
+			}
+
+			.benefit {
+				flex-basis: 100%;
+				flex-grow: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 22px;
+			}
+
+			@media (max-width: 786px) {
+				.benefit {
+					flex-basis: calc(50% - var(--gap));
+				}
+			}
+
+			.benefit__icon {
+				width: 100px;
+			}
+
+			.benefit__icon svg {
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+
+			.benefit__text {
+				font-size: 1rem;
+				font-weight: 900;
+				text-align: center;
+			}
+		</style>
+		<article>
+			<div class="contenu">
+				<div class="benefits__grid">
+					<div class="benefit">
+						<div class="benefit__icon">
+							<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#a)" stroke-width="2">
+									<circle cx="50" cy="50" r="49" stroke="#000" />
+									<path d="M44.794 63.227h10.258m-10.258 6.387h10.258" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="42.153" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="57.696" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="42.153" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="57.695" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<path transform="scale(1.00351 .99647) rotate(45 -39.62 82.237)" stroke="#F0AB00"
+										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
+									<path transform="scale(1.00351 .99647) rotate(45 -36.417 89.97)" stroke="#F0AB00"
+										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
+									<path
+										d="M43.646 55.094H33.133a4.8 4.8 0 0 0-4.8 4.8v11.773m28.021-16.573h10.513a4.8 4.8 0 0 1 4.8 4.8v11.773M56.883 35.724c.591 1.399.868 2.953.803 4.513a10.316 10.316 0 0 1-1.17 4.4c-.704 1.325-1.685 2.416-2.849 3.168-1.163.753-2.472 1.142-3.8 1.13-1.328-.011-2.631-.422-3.785-1.195-1.155-.772-2.121-1.88-2.809-3.216a10.351 10.351 0 0 1-1.116-4.42c-.045-1.561.25-3.11.86-4.499"
+										stroke="#000" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M42.152 29.533a1.2 1.2 0 0 1 1.2-1.2h13.143a1.2 1.2 0 0 1 1.2 1.2v5.7H42.152v-5.7Z"
+										stroke="#F0AB00" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M57.656 31.782h-9.034" stroke="#F0AB00" stroke-linecap="round" />
+								</g>
+								<defs>
+									<clipPath id="a">
+										<path fill="#fff" d="M0 0h100v100H0z" />
+									</clipPath>
+								</defs>
+							</svg>
+						</div>
+						<span class="benefit__text">Безупречный сервис и ненавязчивый персонал</span>
+					</div>
+					<div class="benefit">
+						<div class="benefit__icon">
+							<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#a)" stroke-width="2">
+									<circle cx="50" cy="50" r="49" stroke="#000" />
+									<path d="M44.794 63.227h10.258m-10.258 6.387h10.258" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="42.153" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="57.696" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="42.153" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="57.695" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<path transform="scale(1.00351 .99647) rotate(45 -39.62 82.237)" stroke="#F0AB00"
+										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
+									<path transform="scale(1.00351 .99647) rotate(45 -36.417 89.97)" stroke="#F0AB00"
+										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
+									<path
+										d="M43.646 55.094H33.133a4.8 4.8 0 0 0-4.8 4.8v11.773m28.021-16.573h10.513a4.8 4.8 0 0 1 4.8 4.8v11.773M56.883 35.724c.591 1.399.868 2.953.803 4.513a10.316 10.316 0 0 1-1.17 4.4c-.704 1.325-1.685 2.416-2.849 3.168-1.163.753-2.472 1.142-3.8 1.13-1.328-.011-2.631-.422-3.785-1.195-1.155-.772-2.121-1.88-2.809-3.216a10.351 10.351 0 0 1-1.116-4.42c-.045-1.561.25-3.11.86-4.499"
+										stroke="#000" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M42.152 29.533a1.2 1.2 0 0 1 1.2-1.2h13.143a1.2 1.2 0 0 1 1.2 1.2v5.7H42.152v-5.7Z"
+										stroke="#F0AB00" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M57.656 31.782h-9.034" stroke="#F0AB00" stroke-linecap="round" />
+								</g>
+								<defs>
+									<clipPath id="a">
+										<path fill="#fff" d="M0 0h100v100H0z" />
+									</clipPath>
+								</defs>
+							</svg>
+						</div>
+						<span class="benefit__text">Безупречный сервис и ненавязчивый персонал</span>
+					</div>
+					<div class="benefit">
+						<div class="benefit__icon">
+							<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#a)" stroke-width="2">
+									<circle cx="50" cy="50" r="49" stroke="#000" />
+									<path d="M44.794 63.227h10.258m-10.258 6.387h10.258" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="42.153" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="57.696" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="42.153" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="57.695" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<path transform="scale(1.00351 .99647) rotate(45 -39.62 82.237)" stroke="#F0AB00"
+										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
+									<path transform="scale(1.00351 .99647) rotate(45 -36.417 89.97)" stroke="#F0AB00"
+										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
+									<path
+										d="M43.646 55.094H33.133a4.8 4.8 0 0 0-4.8 4.8v11.773m28.021-16.573h10.513a4.8 4.8 0 0 1 4.8 4.8v11.773M56.883 35.724c.591 1.399.868 2.953.803 4.513a10.316 10.316 0 0 1-1.17 4.4c-.704 1.325-1.685 2.416-2.849 3.168-1.163.753-2.472 1.142-3.8 1.13-1.328-.011-2.631-.422-3.785-1.195-1.155-.772-2.121-1.88-2.809-3.216a10.351 10.351 0 0 1-1.116-4.42c-.045-1.561.25-3.11.86-4.499"
+										stroke="#000" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M42.152 29.533a1.2 1.2 0 0 1 1.2-1.2h13.143a1.2 1.2 0 0 1 1.2 1.2v5.7H42.152v-5.7Z"
+										stroke="#F0AB00" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M57.656 31.782h-9.034" stroke="#F0AB00" stroke-linecap="round" />
+								</g>
+								<defs>
+									<clipPath id="a">
+										<path fill="#fff" d="M0 0h100v100H0z" />
+									</clipPath>
+								</defs>
+							</svg>
+						</div>
+						<span class="benefit__text">Безупречный сервис и ненавязчивый персонал</span>
+					</div>
+					<div class="benefit">
+						<div class="benefit__icon">
+							<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#a)" stroke-width="2">
+									<circle cx="50" cy="50" r="49" stroke="#000" />
+									<path d="M44.794 63.227h10.258m-10.258 6.387h10.258" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="42.153" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="57.696" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="42.153" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="57.695" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<path transform="scale(1.00351 .99647) rotate(45 -39.62 82.237)" stroke="#F0AB00"
+										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
+									<path transform="scale(1.00351 .99647) rotate(45 -36.417 89.97)" stroke="#F0AB00"
+										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
+									<path
+										d="M43.646 55.094H33.133a4.8 4.8 0 0 0-4.8 4.8v11.773m28.021-16.573h10.513a4.8 4.8 0 0 1 4.8 4.8v11.773M56.883 35.724c.591 1.399.868 2.953.803 4.513a10.316 10.316 0 0 1-1.17 4.4c-.704 1.325-1.685 2.416-2.849 3.168-1.163.753-2.472 1.142-3.8 1.13-1.328-.011-2.631-.422-3.785-1.195-1.155-.772-2.121-1.88-2.809-3.216a10.351 10.351 0 0 1-1.116-4.42c-.045-1.561.25-3.11.86-4.499"
+										stroke="#000" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M42.152 29.533a1.2 1.2 0 0 1 1.2-1.2h13.143a1.2 1.2 0 0 1 1.2 1.2v5.7H42.152v-5.7Z"
+										stroke="#F0AB00" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M57.656 31.782h-9.034" stroke="#F0AB00" stroke-linecap="round" />
+								</g>
+								<defs>
+									<clipPath id="a">
+										<path fill="#fff" d="M0 0h100v100H0z" />
+									</clipPath>
+								</defs>
+							</svg>
+						</div>
+						<span class="benefit__text">Безупречный сервис и ненавязчивый персонал</span>
+					</div>
+					<div class="benefit">
+						<div class="benefit__icon">
+							<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#a)" stroke-width="2">
+									<circle cx="50" cy="50" r="49" stroke="#000" />
+									<path d="M44.794 63.227h10.258m-10.258 6.387h10.258" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="42.153" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="57.696" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="42.153" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<ellipse cx="57.695" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
+										stroke-linejoin="round" />
+									<path transform="scale(1.00351 .99647) rotate(45 -39.62 82.237)" stroke="#F0AB00"
+										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
+									<path transform="scale(1.00351 .99647) rotate(45 -36.417 89.97)" stroke="#F0AB00"
+										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
+									<path
+										d="M43.646 55.094H33.133a4.8 4.8 0 0 0-4.8 4.8v11.773m28.021-16.573h10.513a4.8 4.8 0 0 1 4.8 4.8v11.773M56.883 35.724c.591 1.399.868 2.953.803 4.513a10.316 10.316 0 0 1-1.17 4.4c-.704 1.325-1.685 2.416-2.849 3.168-1.163.753-2.472 1.142-3.8 1.13-1.328-.011-2.631-.422-3.785-1.195-1.155-.772-2.121-1.88-2.809-3.216a10.351 10.351 0 0 1-1.116-4.42c-.045-1.561.25-3.11.86-4.499"
+										stroke="#000" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M42.152 29.533a1.2 1.2 0 0 1 1.2-1.2h13.143a1.2 1.2 0 0 1 1.2 1.2v5.7H42.152v-5.7Z"
+										stroke="#F0AB00" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M57.656 31.782h-9.034" stroke="#F0AB00" stroke-linecap="round" />
+								</g>
+								<defs>
+									<clipPath id="a">
+										<path fill="#fff" d="M0 0h100v100H0z" />
+									</clipPath>
+								</defs>
+							</svg>
+						</div>
+						<span class="benefit__text">Безупречный сервис и ненавязчивый персонал</span>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+	<section class="grid">
+		<style>
+			.grid__wrapper {
+				display: flex;
+				flex-direction: column;
+				gap: 60px;
+			}
+
+			.grid-row__content {
+				display: grid;
+				grid-auto-flow: column;
+				grid-auto-columns: 1fr;
+				grid-column-gap: 2.25rem;
+			}
+
+			@media (max-width: 768px) {
+				.grid-row__content {
+					grid-auto-flow: row;
+					grid-row-gap: 2.25em;
+				}
+			}
+
+			.grid-row__text {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+			}
+
+			.grid-row__text--left {
+				grid-column: 1/2;
+			}
+
+			.grid-row__text span {
+				text-align: left;
+				display: block;
+				margin-bottom: 5px;
+				font-size: calc(var(--p) / 1.5);
+			}
+
+			.grid-row__text h3 {
+				text-align: left;
+				margin-top: 0;
+				line-height: 1;
+				margin-bottom: clamp(24px, 3vw, 40px);
+			}
+
+			.grid-row__text p {
+				text-align: left;
+				margin-top: 0;
+				--line-height: 32px;
+				--font-size: 20px;
+				line-height: 1.5;
+				margin-bottom: clamp(24px, 3vw, 40px);
+			}
+
+			.grid-row__img img {
+				max-width: 100%;
+				height: 100%;
+				object-fit: cover;
+				border-radius: 2.5rem;
+			}
+
+			.grid-row__img--right {
+				grid-column: 2/2;
+			}
+
+			@media (max-width: 768px) {
+				.grid-row__img img {
+					border-radius: 20px;
+				}
+
+				.grid-row__text .coral-button {
+					width: 80%;
+					margin-inline: auto;
+				}
+
+				.grid-row__img--right {
+					grid-column: span 2;
+				}
+
+				.grid-row__text--left {
+					grid-column: span 2;
+				}
+			}
+		</style>
+		<article>
+			<div class="contenu">
+				<div class="grid__wrapper">
+					<div class="grid-row">
+						<div class="grid-row__content">
+							<div class="grid-row__img">
+								<img width="724" height="428"
+									srcset="https://cdn.coral.ru/content/cms/russia/coral-special-hotel/antaliya-2.jpg 2x">
+							</div>
+							<div class="grid-row__text">
+								<span>Анталийское побережье</span>
+								<h3>Анталья</h3>
+								<p>Крупный и очень красивый город со старым портом. Центр города наполнен мощёными улочками с уличными
+									кафе, крепостными стенами 2 века и восточными базарами, где продают всё — от пишмание до махровых
+									полотенец. В окрестностях Антальи низвергается Дюденский водопад, к которому можно подплыть на
+									комфортабельной яхте.</p>
+								<button class="coral-button">Выбрать тур</button>
+							</div>
+						</div>
+					</div>
+					<div class="grid-row">
+						<div class="grid-row__content">
+							<div class="grid-row__img grid-row__img--right">
+								<img width="724" height="428"
+									srcset="https://cdn.coral.ru/content/cms/russia/coral-special-hotel/antaliya-2.jpg 2x">
+							</div>
+							<div class="grid-row__text grid-row__text--left">
+								<span>Анталийское побережье</span>
+								<h3>Анталья</h3>
+								<p>Крупный и&nbsp;очень красивый город со&nbsp;старым портом. Центр города наполнен мощёными улочками
+									с&nbsp;уличными
+									кафе, крепостными стенами 2&nbsp;века и&nbsp;восточными базарами, где продают всё&nbsp;&mdash;
+									от&nbsp;пишмание до&nbsp;махровых
+									полотенец. В&nbsp;окрестностях Антальи низвергается Дюденский водопад, к&nbsp;которому можно подплыть
+									на
+									комфортабельной яхте.</p>
+								<button class="coral-button">Выбрать тур</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+</body>
+
+</html>
