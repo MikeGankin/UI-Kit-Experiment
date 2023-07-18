@@ -12,34 +12,19 @@
 
 <body>
 	<style>
-		@font-face {
-			src: url("https://font.static.useinsider.com/coraltravel/museosanscyrl-900-webfont.ttf");
-			font-family: "museosans";
-			font-weight: 900;
-		}
-
-		@font-face {
-			src: url("https://font.static.useinsider.com/coraltravel/museosanscyrl-700-webfont.ttf");
-			font-family: "museosans";
-			font-weight: bold;
-		}
-
-		@font-face {
-			src: url("https://font.static.useinsider.com/coraltravel/museosanscyrl-500-webfont.ttf");
-			font-family: "museosans";
-			font-weight: normal;
-		}
-
-		@font-face {
-			src: url("https://font.static.useinsider.com/coraltravel/museosanscyrl-300-webfont.ttf");
-			font-family: "museosans";
-			font-weight: 300;
-		}
+	
+		@font-face { font-family: 'Bliss Normal'; src: url('https://font.static.useinsider.com/sunmar/Bliss_Normal.ttf'); }
+		@font-face { font-family: 'BlissPro'; src: url('https://font.static.useinsider.com/sunmar/BlissPro.ttf'); }
+		@font-face { font-family: 'BlissPro-Bold'; src: url('https://font.static.useinsider.com/sunmar/BlissPro-Bold.ttf'); }
+		@font-face { font-family: 'BlissPro-Heavy'; src: url('https://font.static.useinsider.com/sunmar/BlissPro-Heavy.ttf'); }
+		@font-face { font-family: 'BlissPro-Italic'; src: url('https://font.static.useinsider.com/sunmar/BlissPro-Italic.ttf'); }
+		@font-face { font-family: 'BlissPro-Light'; src: url('https://font.static.useinsider.com/sunmar/BlissPro-Light.ttf'); }
+		@font-face { font-family: 'BlissPro-Medium'; src: url('https://font.static.useinsider.com/sunmar/BlissPro-Medium.ttf'); }
 
 		:root {
 			--conntenu-padding-x: 15px;
 			--contenu-padding-y: clamp(5.00rem, calc(4.29rem + 3.57vw), 7.50rem);
-			--coral-font: "museosans", sans-serif;
+			--sunmar-font: "BlissPro", sans-serif;
 			--h1: clamp(2.00rem, calc(1.71rem + 1.43vw), 3.00rem);
 			--h2: clamp(1.5rem, calc(1.21rem + 1.43vw), 2.5rem);
 			--h3: clamp(1.50rem, calc(1.36rem + .71vw), 2.00rem);
@@ -48,22 +33,16 @@
 			--p: clamp(.88rem, calc(.77rem + .54vw), 1.25rem);
 
 			--button-font: 1rem;
-			--coral-main-yellow: #F0AB00;
-			--coral-main-yellow-accent: #E27300;
-			--coral-main-blue: #0093D0;
-			--coral-main-blue-accent: #0067B5;
-			--coral-ramp-bg: linear-gradient(45.62deg, #FB7099 0%, #F0AB13 100%);
-			--coral-hero-title: #033870;
-			--coral-common-black: #000;
-			--coral-common-white: #FFFFFF;
-			--coral-grey: #777777;
-			--coral-page-bg: #EAF3FB;
-			--coral-href: #1EBDFF;
-			--coral-green-accent: #8ACB00;
-			--coral-green-lite: #D0EA99;
-			--coral-yellow-lite: #EFD48F;
-			--coral-red-error: #F33;
-			--coral-red-warn: #FFDCDC;
+			--sunmar-red: #D8242A;
+			--sunmar-blue: #0E2855;
+			--sunmar-navy: #0E2855;
+			--sunmar-ramp: linear-gradient(225deg, #E7317D 0%, #D8242A 100%);
+			--sunmar-ramp-accent: linear-gradient(225deg, #C70053 0%, #B50B2D 100%);
+			--sunmar-page-bg: #FAFAFA;
+			--sunmar-grey: #656565;
+			--sunmar-gray: #656565;
+			--white: #ffffff;
+			--black: #000000;
 			--transiton: .3s ease;
 		}
 
@@ -75,6 +54,7 @@
 
 		body {
 			overflow-x: hidden;
+			background-color: var(--sunmar-page-bg);
 		}
 
 		section {
@@ -108,7 +88,7 @@
 			margin: 0;
 			margin-bottom: 40px;
 			font-size: var(--h2);
-			font-family: var(--coral-font);
+			font-family: var(--sunmar-font);
 			font-weight: 600;
 			line-height: 1;
 			text-align: center;
@@ -117,7 +97,7 @@
 		p {
 			margin-block: 0;
 			font-size: var(--p);
-			font-family: var(--coral-font);
+			font-family: var(--sunmar-font);
 			font-weight: 400;
 			line-height: 1.5;
 			text-align: center;
@@ -125,50 +105,66 @@
 
 		h3 {
 			font-size: var(--h3);
-			font-family: var(--coral-font);
+			font-family: var(--sunmar-font);
 			font-weight: 600;
 			text-align: center;
 		}
 
 		p.subtitle {
 			font-size: calc(var(--p) / 1.4);
-			font-family: var(--coral-font);
+			font-family: var(--sunmar-font);
 			font-weight: 400;
 			text-align: center;
 		}
 
 		span {
-			font-family: var(--coral-font);
+			font-family: var(--sunmar-font);
 		}
 
-		.coral-button {
-			padding-inline: 24px;
-			padding-block: 17px;
+		.sunmar-button {
 			width: fit-content;
 			margin: 0;
-			padding-block: 1em;
-			padding-inline: 1.5em;
-			transition: background-color var(--transiton), transform var(--transiton);
-			background-color: var(--coral-main-yellow);
+			padding-block: clamp(0.5rem, 2.5vw, 1rem);
+    	padding-inline: clamp(1rem, 2.5vw ,1.5rem);
+			transition: background var(--transiton), transform var(--transiton);
+			background: var(--sunmar-ramp);
 			cursor: pointer;
 			border: none;
-			border-radius: 8px;
+			border-radius: 30px;
 			font-size: var(--button-font);
-			font-family: var(--coral-font);
+			font-family: var(--sunmar-font);
 			font-weight: 600;
 			line-height: 1;
-			color: var(--coral-common-white);
-			text-transform: uppercase;
-			letter-spacing: .03rem;
+			color: var(--white);
+			letter-spacing: 0.03rem;
+		}
+
+		.sunmar-button--anchor {
+			position: relative;
+			padding-inline-end: clamp(3rem, 2.5vw,4rem);
+		}
+
+		.sunmar-button--anchor:after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			right: 3%;
+			width: 1.5em;
+			height: 1.5em;
+			background-image: url("data:image/svg+xml,%3Csvg width='64px' height='64px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='%23ffffff'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M18.2929 15.2893C18.6834 14.8988 18.6834 14.2656 18.2929 13.8751L13.4007 8.98766C12.6195 8.20726 11.3537 8.20757 10.5729 8.98835L5.68257 13.8787C5.29205 14.2692 5.29205 14.9024 5.68257 15.2929C6.0731 15.6835 6.70626 15.6835 7.09679 15.2929L11.2824 11.1073C11.673 10.7168 12.3061 10.7168 12.6966 11.1073L16.8787 15.2893C17.2692 15.6798 17.9024 15.6798 18.2929 15.2893Z' fill='%23ffffff'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			transform: translate(-50%, -50%) rotate(180deg);
 		}
 
 		@media (hover:hover) {
-			.coral-button:hover {
-				background-color: var(--coral-main-yellow-accent);
+			.sunmar-button:hover {
+				background: var(--sunmar-ramp-accent);
 			}
 		}
 
-		.coral-button:active {
+		.sunmar-button:active {
 			transform: translateY(3px);
 		}
 
@@ -259,7 +255,7 @@
 			}
 
 			.benefit__icon {
-				width: 100px;
+				width: clamp(80px, 5vw, 100px);
 			}
 
 			.benefit__icon svg {
@@ -527,11 +523,6 @@
 					border-radius: 20px;
 				}
 
-				.grid-row__text .coral-button {
-					width: 80%;
-					margin-inline: auto;
-				}
-
 				.grid-row__img--right {
 					grid-column: span 2;
 				}
@@ -557,7 +548,9 @@
 									кафе, крепостными стенами 2 века и восточными базарами, где продают всё — от пишмание до махровых
 									полотенец. В окрестностях Антальи низвергается Дюденский водопад, к которому можно подплыть на
 									комфортабельной яхте.</p>
-								<button class="coral-button">Выбрать тур</button>
+								<button class="sunmar-button sunmar-button--anchor">
+									Выбрать тур
+								</button>
 							</div>
 						</div>
 					</div>
@@ -577,7 +570,7 @@
 									полотенец. В&nbsp;окрестностях Антальи низвергается Дюденский водопад, к&nbsp;которому можно подплыть
 									на
 									комфортабельной яхте.</p>
-								<button class="coral-button">Выбрать тур</button>
+								<button class="sunmar-button">Выбрать тур</button>
 							</div>
 						</div>
 					</div>
@@ -591,7 +584,7 @@
 				display: flex;
 				gap: 2rem;
 				list-style: none;
-				font-family: var(--coral-font);
+				font-family: var(--sunmar-font);
 				margin: 0;
 				padding: 0;
 			}
@@ -603,21 +596,25 @@
 			}
 
 			.accordion-list__item {
+				height: fit-content;
 				flex-basis: 100%;
 				flex-grow: 0;
 				overflow: hidden;
+				box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+				border-radius: 16px;
+				/* -webkit-mask-image: radial-gradient(white, black); */
 			}
 
 			.accordion-list__label {
 				position: relative;
 				display: block;
 				width: 100%;
-				background-color: var(--coral-href);
-				color: var(--coral-common-white);
+				background-color: var(--white);
+				color: var(--black);
 				cursor: pointer;
 				border: none;
-				padding: 1.2rem;
-				border-radius: 8px 8px 8px 8px;
+				padding: 1.7rem;
+				border-radius: 16px 16px 16px 16px;
 				transition:
 					background-color var(--transiton),
 					transform var(--transiton),
@@ -634,20 +631,21 @@
 				height: 40px;
 				top: 50%;
 				right: 0;
-				background-image: url("data:image/svg+xml,%3Csvg width='64px' height='64px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='%23ffffff'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M18.2929 15.2893C18.6834 14.8988 18.6834 14.2656 18.2929 13.8751L13.4007 8.98766C12.6195 8.20726 11.3537 8.20757 10.5729 8.98835L5.68257 13.8787C5.29205 14.2692 5.29205 14.9024 5.68257 15.2929C6.0731 15.6835 6.70626 15.6835 7.09679 15.2929L11.2824 11.1073C11.673 10.7168 12.3061 10.7168 12.6966 11.1073L16.8787 15.2893C17.2692 15.6798 17.9024 15.6798 18.2929 15.2893Z' fill='%23ffffff'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+				background-image: url("data:image/svg+xml,%3Csvg width='64px' height='64px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='%23ffffff'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M18.2929 15.2893C18.6834 14.8988 18.6834 14.2656 18.2929 13.8751L13.4007 8.98766C12.6195 8.20726 11.3537 8.20757 10.5729 8.98835L5.68257 13.8787C5.29205 14.2692 5.29205 14.9024 5.68257 15.2929C6.0731 15.6835 6.70626 15.6835 7.09679 15.2929L11.2824 11.1073C11.673 10.7168 12.3061 10.7168 12.6966 11.1073L16.8787 15.2893C17.2692 15.6798 17.9024 15.6798 18.2929 15.2893Z' fill='%23ffffff'%3E%3C/path%3E%3C/g%3E%3C/svg%3E"), var(--sunmar-ramp);
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-position: center;
 				transform: translate(-50%, -50%) rotate(0);
 				transform-origin: center;
 				transition: transform var(--transiton);
+				border-radius: 100%;
 			}
 
 			.accordion__content {
-				background-color: var(--coral-href);
-				color: var(--coral-common-white);
-				border-bottom-left-radius: 8px;
-				border-bottom-right-radius: 8px;
+				background-color: var(--white);
+				color: var(--black);
+				border-bottom-left-radius: 16px;
+				border-bottom-right-radius: 16px;
 				display: grid;
 				grid-template-rows: 0fr;
 				opacity: 0;
@@ -660,15 +658,9 @@
 				font-size: calc(var(--p) / 1.3);
 				text-align: left;
 				overflow: hidden;
-				padding-inline: 1rem;
+				padding-inline: 1.5rem;
 				padding-block: 0rem;
 				transition: padding-block var(--transiton);
-			}
-
-			@media (hover:hover) {
-				.accordion-list__label:hover {
-					background-color: var(--coral-main-blue-accent);
-				}
 			}
 
 			.accordion-list__label:active {
@@ -689,7 +681,7 @@
 			}
 
 			.accordion__toggle:checked~.accordion__content p {
-				padding-block: 1rem;
+				padding-block: 1.5rem;
 			}
 		</style>
 		<article>
