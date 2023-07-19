@@ -12,14 +12,40 @@
 
 <body>
 	<style>
-	
-		@font-face { font-family: 'Bliss Normal'; src: url('https://font.static.useinsider.com/sunmar/Bliss_Normal.ttf'); }
-		@font-face { font-family: 'BlissPro'; src: url('https://font.static.useinsider.com/sunmar/BlissPro.ttf'); }
-		@font-face { font-family: 'BlissPro-Bold'; src: url('https://font.static.useinsider.com/sunmar/BlissPro-Bold.ttf'); }
-		@font-face { font-family: 'BlissPro-Heavy'; src: url('https://font.static.useinsider.com/sunmar/BlissPro-Heavy.ttf'); }
-		@font-face { font-family: 'BlissPro-Italic'; src: url('https://font.static.useinsider.com/sunmar/BlissPro-Italic.ttf'); }
-		@font-face { font-family: 'BlissPro-Light'; src: url('https://font.static.useinsider.com/sunmar/BlissPro-Light.ttf'); }
-		@font-face { font-family: 'BlissPro-Medium'; src: url('https://font.static.useinsider.com/sunmar/BlissPro-Medium.ttf'); }
+		@font-face {
+			font-family: 'Bliss Normal';
+			src: url('https://font.static.useinsider.com/sunmar/Bliss_Normal.ttf');
+		}
+
+		@font-face {
+			font-family: 'BlissPro';
+			src: url('https://font.static.useinsider.com/sunmar/BlissPro.ttf');
+		}
+
+		@font-face {
+			font-family: 'BlissPro-Bold';
+			src: url('https://font.static.useinsider.com/sunmar/BlissPro-Bold.ttf');
+		}
+
+		@font-face {
+			font-family: 'BlissPro-Heavy';
+			src: url('https://font.static.useinsider.com/sunmar/BlissPro-Heavy.ttf');
+		}
+
+		@font-face {
+			font-family: 'BlissPro-Italic';
+			src: url('https://font.static.useinsider.com/sunmar/BlissPro-Italic.ttf');
+		}
+
+		@font-face {
+			font-family: 'BlissPro-Light';
+			src: url('https://font.static.useinsider.com/sunmar/BlissPro-Light.ttf');
+		}
+
+		@font-face {
+			font-family: 'BlissPro-Medium';
+			src: url('https://font.static.useinsider.com/sunmar/BlissPro-Medium.ttf');
+		}
 
 		:root {
 			--conntenu-padding-x: 15px;
@@ -43,7 +69,7 @@
 			--sunmar-gray: #656565;
 			--white: #ffffff;
 			--black: #000000;
-			--transiton: .3s ease;
+			--transiton: 0.3s ease;
 		}
 
 		*,
@@ -124,9 +150,8 @@
 		.sunmar-button {
 			width: fit-content;
 			margin: 0;
-			padding-block: clamp(0.5rem, 2.5vw, 1rem);
-    	padding-inline: clamp(1rem, 2.5vw ,1.5rem);
-			transition: background var(--transiton), transform var(--transiton);
+			padding-block: clamp(0.7rem, 2.5vw, 1rem);
+			padding-inline: clamp(1rem, 2.5vw, 1.5rem);
 			background: var(--sunmar-ramp);
 			cursor: pointer;
 			border: none;
@@ -137,11 +162,12 @@
 			line-height: 1;
 			color: var(--white);
 			letter-spacing: 0.03rem;
+			transition: background var(--transiton), transform var(--transiton);
 		}
 
 		.sunmar-button--anchor {
 			position: relative;
-			padding-inline-end: clamp(3rem, 2.5vw,4rem);
+			padding-inline-end: clamp(3rem, 2.5vw, 4rem);
 		}
 
 		.sunmar-button--anchor:after {
@@ -188,8 +214,8 @@
 	<section class="kv underbrow">
 		<article class="aspect-ratio--16-9">
 			<div class="contenu">
-				<h1>Я классный заголовок</h1>
-				<p>Я текст под заголовком</p>
+				<!-- <h1>Я классный заголовок</h1>
+				<p>Я текст под заголовком</p> -->
 				<!-- <ul class="kv__benefits kv-benefits">
 					<li class="kv-benefits__item">
 						<div class="kv-benefits__icon">
@@ -200,6 +226,140 @@
 				</ul> -->
 			</div>
 		</article>
+	</section>
+	<section class="ticker">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap');
+
+			.ticker {
+				position: relative;
+				overflow: hidden;
+				border-top: 1px solid var(--dark-color);
+				border-bottom: 1px solid var(--dark-color);
+				background-color: #0e2753;
+				padding-block: 10px;
+			}
+
+			.ticker__wrapper {
+				display: flex;
+			}
+
+			.ticker__item {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				flex-shrink: 0;
+				white-space: nowrap;
+				animation: ticker 30s linear infinite;
+
+			}
+
+			.ticker__item span {
+				font-family: var(--sunmar-font);
+				font-size: 1.25rem;
+				color: var(--white);
+				line-height: 1.5;
+			}
+
+			.ticker:hover .ticker__item {
+				animation-play-state: paused;
+			}
+
+			.ticker__icon {
+				margin-inline: 1rem;
+				display: flex;
+				align-items: center;
+			}
+
+			.ticker-link {
+				padding-block: .5rem;
+			}
+
+			.ticker__icon svg {
+				fill: white;
+			}
+
+			@keyframes ticker {
+				from {
+					transform: translateZ(0);
+				}
+
+				to {
+					transform: translate3d(-100%, 0, 0);
+				}
+			}
+		</style>
+		<div class="ticker__wrapper">
+			<div class="ticker__item">
+				<span class="ticker__text">В&nbsp;ТУРЦИИ&nbsp;&mdash; НАСТОЯЩЕЕ ЛЕТО!</span>
+				<div class="ticker__icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+						<g stroke-width="0" />
+						<g stroke-linecap="round" stroke-linejoin="round" />
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M7 5a4 4 0 1 1 4 4H3a1 1 0 0 1 0-2h8a2 2 0 1 0-2-2v.1a1 1 0 0 1-2 0V5Zm9.9 1a1 1 0 0 1 1-1h.1a4 4 0 0 1 0 8H5a1 1 0 1 1 0-2h13a2 2 0 1 0 0-4h-.1a1 1 0 0 1-1-1ZM0 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1Zm4 4a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm4 0a1 1 0 0 1 1-1h4a4 4 0 1 1-4 4v-.1a1 1 0 1 1 2 0v.1a2 2 0 1 0 2-2H9a1 1 0 0 1-1-1Z" />
+					</svg>
+				</div>
+
+				<span class="ticker__text">ВОЗДУХ&nbsp;+30&deg;</span>
+				<div class="ticker__icon">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g stroke-width="0" />
+						<g stroke-linecap="round" stroke-linejoin="round" />
+						<g fill="#fff">
+							<path d="M18 12a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z" />
+							<path fill-rule="evenodd" clip-rule="evenodd"
+								d="M12 1.25a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0V2a.75.75 0 0 1 .75-.75ZM4.399 4.399a.75.75 0 0 1 1.06 0l.393.392a.75.75 0 0 1-1.06 1.061l-.393-.393a.75.75 0 0 1 0-1.06Zm15.202 0a.75.75 0 0 1 0 1.06l-.393.393a.75.75 0 0 1-1.06-1.06l.393-.393a.75.75 0 0 1 1.06 0ZM1.25 12a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5H2a.75.75 0 0 1-.75-.75Zm19 0a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75Zm-2.102 6.148a.75.75 0 0 1 1.06 0l.393.393a.75.75 0 1 1-1.06 1.06l-.393-.393a.75.75 0 0 1 0-1.06Zm-12.296 0a.75.75 0 0 1 0 1.06l-.393.393a.75.75 0 1 1-1.06-1.06l.392-.393a.75.75 0 0 1 1.061 0ZM12 20.25a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1a.75.75 0 0 1 .75-.75Z" />
+						</g>
+					</svg>
+				</div>
+
+				<span class="ticker__text">ВОДА&nbsp;+24&deg;</span>
+				<div class="ticker__icon">
+					<svg width="24" height="24" viewBox="0 0 960 960" fill="none" xmlns="http://www.w3.org/2000/svg"
+						stroke="#fff">
+						<g stroke-width="0" />
+						<g stroke-linecap="round" stroke-linejoin="round" />
+						<g clip-path="url(#a)" fill="#fff">
+							<path
+								d="M879.455 139.428c-4.118 26.574-14.383 52.209-32.209 72.299-34.951 41.401-73.799 79.099-115.798 113.317-65.761 55.718-133.717 108.848-200.947 162.765-45.273 34.494-91.512 67.707-137.57 101.119-21.512 19.717-42.622 44.75-75.296 40.999-45.673-12.175-30.361-70.803-6.759-97.2 35.586-45.223 73.547-88.554 112.251-131.133C518.236 296.456 691.896 87.952 841.06 85.398c27.17 5.199 39.69 27.14 38.395 54.03ZM811.259 665.15c.513 21.14-8.24 37.249-24.448 49.971-52.675 53.457-160.819-173.868-186.328-211.862-8.365-16.83-9.185-39.51 5.512-52.335 28.746-25.409 57.781-50.491 86.739-75.659 19.051-19.399 48.08-39.661 64.38-5.545 24.827 96.619 46.248 195.675 54.145 295.43ZM243.227 129.194c1.896-33.299 44.522-45.259 72.116-36.723 86.004 23.794 171.754 50.439 254.32 84.174 16.751 10.018 19.812 28.64 6.215 42.593-33.47 34.12-68.76 66.478-101.463 101.368-11.16 11.854-17.288 13.694-30.743 4.74-15.148-10.08-30.098-20.687-43.916-32.491-37.199-37.539-152.907-115.475-156.529-163.661Zm138.195 689.789c.614-9.179 7.204-16.996 15.187-24.078 55.428-47.777 109.029-97.453 160.627-149.334 8-7.694 16.77-14.627 25.506-21.504 20.624-17.725 43.438 8.08 23.671 26.433-59.067 58.456-119.017 116.032-177.75 174.822-12.703 16.336-47.165 23.323-47.241-6.339Zm-82.028-517.028c-45.566 62.604-106.171 115.009-157.157 173.837-9.886 10.24-18.127 23.086-31.114 29.635-16.332 9.547-37.705-9.983-28.415-26.754 3.365-6.776 8.787-12.776 14.174-18.26 47.13-44.654 90.014-93.442 135.196-140.014 15.957-13.68 56.36-58.745 67.316-18.444Zm-1.593 379.23c-17.256 28.723-48.924 50.211-71.849 74.95-25.524 22.043-46.303 51.173-76.36 67.112-6.594 3.035-13.558 2.467-19.103-3.043-11.88-11.761.359-27.64 9.069-36.974 40.361-37.911 81.053-75.47 121.705-113.071 12.05-14.822 36.24-13.535 36.538 11.026Zm179.369-35.967c-4.456 84.177-96.963 40.664-83.928-23.896 4.652-18.744 25.484-27.453 38.728-39.786 9.495-7.393 20.042-4.424 29.775-1.014 13.036 7.533 11.028 48.347 15.425 64.696ZM239.188 466.68c15.091-40.003 58.538-37.358 90.291-18.874 39.888 21.791-7.541 55.948-24.892 76.017-2.481 2.502-8.016 4.046-11.446 3.2-31.606-6.139-46.149-30.275-53.953-60.343Zm372.443 408.79c-24.265 1.192-29.836-22.739-14.892-36.855 8.342-7.698 16.682-15.403 24.857-23.277 17.729-17.079 35.334-34.287 53.046-51.383 6.934-7.384 19.158-10.725 26.478-2.946 7.95 7.197 4.97 19.423-2.38 26.471-18.44 20.032-36.952 39.996-55.411 60.011-8.192 10.04-20.583 23.435-31.698 27.979ZM142.756 259.147c-21.272.399-30.993-20.69-18.531-35.024 4.951-5.684 10.739-10.667 16.362-15.732 14.191-12.069 27.276-25.786 42.513-36.494 16.116-9.72 34.552 9.036 24.954 25.07-14.845 19.459-33.809 35.823-50.896 53.344-4.667 4.469-11.237 6.953-14.402 8.836Z" />
+						</g>
+						<defs>
+							<clipPath id="a">
+								<path fill="#fff" d="M80 85h800v790.909H80z" />
+							</clipPath>
+						</defs>
+					</svg>
+				</div>
+
+				<span class="ticker__text">СОЧНЫЕ ФРУКТЫ И&nbsp;ПРИЯТНЫЕ ЦЕНЫ НА&nbsp;ТУРЫ</span>
+				<div class="ticker__icon">
+					<svg fill="#fff" height="24" width="24" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 256 256" xml:space="preserve">
+						<g stroke-width="0" />
+						<g stroke-linecap="round" stroke-linejoin="round" />
+						<path
+							d="m211.4 35.1 13.7-15.8-9.1-7.9L178.2 55c-.6-.4-1.2-.7-1.9-1l-.5-.1s-66.2-39.3-111.4 23c-32 44.2-10.8 80.4-56.4 117.6-9.8 7.5-9.6 22.8-1.1 30.3 19.5 14.9 85.3 43.7 147.4 1.8 62.6-42.3 59.9-92.5 53.3-123.5-3.2-14.4-9.6-30.1-19.9-40.7l21.8-25.2c19 19.8 21.2 76.5 10 125.2-10 43.5-31.7 78-54.6 91.2 30.9 1.5 76-33.1 87.9-84.6 12-52.4-11-121.1-41.4-133.9z" />
+					</svg>
+				</div>
+				<span class="ticker__text">СПЕШИТЕ БРОНИРОВАТЬ!</span>
+				<button class="sunmar-button ticker-link ticker__icon">Выбрать тур</button>
+			</div>
+		</div>
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				let quantity = 3;
+				function contentCopy(quantity) {
+					let i = 1;
+					while (i < quantity) {
+						let clone = document.querySelector('.ticker__item').cloneNode(true);
+						document.querySelector('.ticker__wrapper').appendChild(clone);
+						i++;
+					}
+				}
+				contentCopy(quantity);
+			})
+		</script>
 	</section>
 	<section class="hero">
 		<article>
@@ -255,7 +415,7 @@
 			}
 
 			.benefit__icon {
-				width: clamp(80px, 5vw, 100px);
+				width: clamp(80px, 6vw, 100px);
 			}
 
 			.benefit__icon svg {
@@ -662,6 +822,25 @@
 				padding-block: 0rem;
 				transition: padding-block var(--transiton);
 			}
+
+			/* @media (hover:hover) {
+				.accordion-list__label:hover {
+					border-radius: 8px 8px 0 0;
+				}
+
+				.accordion-list__label:hover+.accordion__content {
+					grid-template-rows: 1fr;
+					opacity: 1;
+				}
+
+				.accordion-list__label:hover+.accordion__content p {
+					padding-block: 1.5rem;
+				}
+
+				.accordion-list__label:hover::after {
+					transform: translate(-50%, -50%) rotate(180deg);
+				}
+			} */
 
 			.accordion-list__label:active {
 				transform: translateY(3px);
