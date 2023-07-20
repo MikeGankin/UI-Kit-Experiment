@@ -1,0 +1,9 @@
+:root {
+	--sunmar-font: "BlissPro", sans-serif;
+	--h1: clamp(2.00rem, calc(1.71rem + 1.43vw), 3.00rem);
+	--h2: clamp(1.5rem, calc(1.21rem + 1.43vw), 2.5rem);
+	--h3: clamp(1.50rem, calc(1.36rem + .71vw), 2.00rem);
+	--base-text: clamp(.88rem, calc(.77rem + .54vw), 1.25rem);
+	--small-text: 1rem;
+	--tiny-text: 0.875rem;
+}

@@ -1,0 +1,6 @@
+:root {
+	--conntenu-padding-x: 15px;
+	--contenu-padding-y: clamp(5.00rem, calc(4.29rem + 3.57vw), 7.50rem);
+
+	/* отступы кратны 8 */
+}
