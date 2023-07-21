@@ -4,274 +4,14 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-		integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+	<link rel="stylesheet" href="style.css">
 	<title>Тест Ui-Kit</title>
 </head>
 
 <body>
-	<style>
-		@font-face {
-			font-family: 'Bliss Normal';
-			src: url('https://font.static.useinsider.com/sunmar/Bliss_Normal.ttf');
-		}
-
-		@font-face {
-			font-family: 'BlissPro';
-			src: url('https://font.static.useinsider.com/sunmar/BlissPro.ttf');
-		}
-
-		@font-face {
-			font-family: 'BlissPro-Bold';
-			src: url('https://font.static.useinsider.com/sunmar/BlissPro-Bold.ttf');
-		}
-
-		@font-face {
-			font-family: 'BlissPro-Heavy';
-			src: url('https://font.static.useinsider.com/sunmar/BlissPro-Heavy.ttf');
-		}
-
-		@font-face {
-			font-family: 'BlissPro-Italic';
-			src: url('https://font.static.useinsider.com/sunmar/BlissPro-Italic.ttf');
-		}
-
-		@font-face {
-			font-family: 'BlissPro-Light';
-			src: url('https://font.static.useinsider.com/sunmar/BlissPro-Light.ttf');
-		}
-
-		@font-face {
-			font-family: 'BlissPro-Medium';
-			src: url('https://font.static.useinsider.com/sunmar/BlissPro-Medium.ttf');
-		}
-
-		:root {
-			--conntenu-padding-x: 15px;
-			--contenu-padding-y: clamp(5.00rem, calc(4.29rem + 3.57vw), 7.50rem);
-			--sunmar-font: "BlissPro", sans-serif;
-			--h1: clamp(2.00rem, calc(1.71rem + 1.43vw), 3.00rem);
-			--h2: clamp(1.5rem, calc(1.21rem + 1.43vw), 2.5rem);
-			--h3: clamp(1.50rem, calc(1.36rem + .71vw), 2.00rem);
-
-			/* 20.00px → 40.00px */
-			--p: clamp(.88rem, calc(.77rem + .54vw), 1.25rem);
-
-			--button-font: 1rem;
-			--sunmar-red: #D8242A;
-			--sunmar-blue: #0E2855;
-			--sunmar-navy: #0E2855;
-			--sunmar-ramp: linear-gradient(225deg, #E7317D 0%, #D8242A 100%);
-			--sunmar-ramp-accent: linear-gradient(225deg, #C70053 0%, #B50B2D 100%);
-			--sunmar-page-bg: #FAFAFA;
-			--sunmar-grey: #656565;
-			--sunmar-gray: #656565;
-			--white: #ffffff;
-			--black: #000000;
-			--transiton: 0.3s ease;
-		}
-
-		*,
-		*::before,
-		*::after {
-			box-sizing: border-box;
-		}
-
-		body {
-			overflow-x: hidden;
-			background-color: var(--sunmar-page-bg);
-		}
-
-		section {
-			max-width: 1920px;
-		}
-
-		.aspect-ratio--16-9 {
-			position: relative;
-			height: 700px;
-		}
-
-		.aspect-ratio--16-9::after {
-			content: "";
-			width: 100%;
-			top: 0;
-			left: 0;
-			position: absolute;
-			display: block;
-			padding-top: 51.3355%;
-		}
-
-		.contenu {
-			padding-inline: var(--conntenu-padding-x);
-			padding-block: calc(var(--contenu-padding-y) / 2);
-			margin-inline: auto;
-			max-width: calc(1440px - calc(var(--conntenu-padding-x) * 2));
-			outline: 1px solid red;
-		}
-
-		h2 {
-			margin: 0;
-			margin-bottom: 40px;
-			font-size: var(--h2);
-			font-family: var(--sunmar-font);
-			font-weight: 600;
-			line-height: 1;
-			text-align: center;
-		}
-
-		p {
-			margin-block: 0;
-			font-size: var(--p);
-			font-family: var(--sunmar-font);
-			font-weight: 400;
-			line-height: 1.5;
-			text-align: center;
-			margin-bottom: 40px;
-		}
-
-		h3 {
-			font-size: var(--h3);
-			font-family: var(--sunmar-font);
-			font-weight: 600;
-			text-align: center;
-		}
-
-		p.subtitle {
-			font-size: calc(var(--p) / 1.4);
-			font-family: var(--sunmar-font);
-			font-weight: 400;
-			text-align: center;
-		}
-
-		span {
-			font-family: var(--sunmar-font);
-		}
-
-		.sunmar-button {
-			width: fit-content;
-			margin: 0;
-			padding-block: clamp(0.7rem, 2.5vw, 1rem);
-			padding-inline: clamp(1rem, 2.5vw, 1.5rem);
-			background: var(--sunmar-ramp);
-			cursor: pointer;
-			border: none;
-			border-radius: 30px;
-			font-size: var(--button-font);
-			font-family: var(--sunmar-font);
-			font-weight: 600;
-			line-height: 1;
-			color: var(--white);
-			letter-spacing: 0.03rem;
-			transition: background var(--transiton), transform var(--transiton);
-		}
-
-		.sunmar-button--anchor {
-			position: relative;
-			padding-inline-end: clamp(3rem, 2.5vw, 4rem);
-		}
-
-		.sunmar-button--anchor:after {
-			content: "";
-			position: absolute;
-			top: 50%;
-			right: 3%;
-			width: 1.5em;
-			height: 1.5em;
-			background-image: url("data:image/svg+xml,%3Csvg width='64px' height='64px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='%23ffffff'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M18.2929 15.2893C18.6834 14.8988 18.6834 14.2656 18.2929 13.8751L13.4007 8.98766C12.6195 8.20726 11.3537 8.20757 10.5729 8.98835L5.68257 13.8787C5.29205 14.2692 5.29205 14.9024 5.68257 15.2929C6.0731 15.6835 6.70626 15.6835 7.09679 15.2929L11.2824 11.1073C11.673 10.7168 12.3061 10.7168 12.6966 11.1073L16.8787 15.2893C17.2692 15.6798 17.9024 15.6798 18.2929 15.2893Z' fill='%23ffffff'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: center;
-			transform: translate(-50%, -50%) rotate(180deg);
-		}
-
-		@media (hover:hover) {
-			.sunmar-button:hover {
-				background: var(--sunmar-ramp-accent);
-			}
-		}
-
-		.sunmar-button:active {
-			transform: translateY(3px);
-		}
-
-		.underbrow {
-			background: url(https://cdn.coral.ru/content/img/for_page_egypt_4_5.jpg) 50% / cover no-repeat;
-		}
-
-		.visually-hidden {
-			position: absolute;
-			width: 1px;
-			height: 1px;
-			margin: -1px;
-			border: 0;
-			padding: 0;
-			white-space: nowrap;
-			clip-path: inset(100%);
-			clip: rect(0 0 0 0);
-			overflow: hidden;
-		}
-	</style>
 	<section class="ticker">
-		<style>
-			.ticker {
-				position: relative;
-				overflow: hidden;
-				border-top: 1px solid var(--dark-color);
-				border-bottom: 1px solid var(--dark-color);
-				background-color: #0e2753;
-				padding-block: 10px;
-			}
-
-			.ticker__wrapper {
-				display: flex;
-			}
-
-			.ticker__item {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				flex-shrink: 0;
-				white-space: nowrap;
-				animation: ticker 30s linear infinite;
-
-			}
-
-			.ticker__item span {
-				font-family: var(--sunmar-font);
-				font-size: 1.25rem;
-				color: var(--white);
-				line-height: 1.5;
-			}
-
-			.ticker:hover .ticker__item {
-				animation-play-state: paused;
-			}
-
-			.ticker__icon {
-				margin-inline: 1rem;
-				display: flex;
-				align-items: center;
-			}
-
-			.ticker-link {
-				padding-block: .5rem;
-			}
-
-			.ticker__icon svg {
-				fill: white;
-			}
-
-			@keyframes ticker {
-				from {
-					transform: translateZ(0);
-				}
-
-				to {
-					transform: translate3d(-100%, 0, 0);
-				}
-			}
-		</style>
+		<link rel="stylesheet" href="/css/styledComponents/ticker.css">
 		<div class="ticker__wrapper">
 			<div class="ticker__item">
 				<span class="ticker__text">В&nbsp;ТУРЦИИ&nbsp;&mdash; НАСТОЯЩЕЕ ЛЕТО!</span>
@@ -283,8 +23,7 @@
 							d="M7 5a4 4 0 1 1 4 4H3a1 1 0 0 1 0-2h8a2 2 0 1 0-2-2v.1a1 1 0 0 1-2 0V5Zm9.9 1a1 1 0 0 1 1-1h.1a4 4 0 0 1 0 8H5a1 1 0 1 1 0-2h13a2 2 0 1 0 0-4h-.1a1 1 0 0 1-1-1ZM0 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1Zm4 4a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm4 0a1 1 0 0 1 1-1h4a4 4 0 1 1-4 4v-.1a1 1 0 1 1 2 0v.1a2 2 0 1 0 2-2H9a1 1 0 0 1-1-1Z" />
 					</svg>
 				</div>
-
-				<span class="ticker__text">ВОЗДУХ&nbsp;+30&deg;</span>
+				<span class="ticker__text">ВОЗДУХ +30&deg;</span>
 				<div class="ticker__icon">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<g stroke-width="0" />
@@ -296,8 +35,7 @@
 						</g>
 					</svg>
 				</div>
-
-				<span class="ticker__text">ВОДА&nbsp;+24&deg;</span>
+				<span class="ticker__text">ВОДА +24&deg;</span>
 				<div class="ticker__icon">
 					<svg width="24" height="24" viewBox="0 0 960 960" fill="none" xmlns="http://www.w3.org/2000/svg"
 						stroke="#fff">
@@ -314,7 +52,6 @@
 						</defs>
 					</svg>
 				</div>
-
 				<span class="ticker__text">СОЧНЫЕ ФРУКТЫ И&nbsp;ПРИЯТНЫЕ ЦЕНЫ НА&nbsp;ТУРЫ</span>
 				<div class="ticker__icon">
 					<svg fill="#fff" height="24" width="24" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg"
@@ -345,139 +82,7 @@
 		</script>
 	</section>
 	<section class="hero">
-		<style>
-			section.hero .contenu {
-				display: flex;
-				justify-content: space-between;
-				gap: 2rem;
-			}
-
-			.centered-text {
-				text-align: left;
-			}
-
-			.hero__text {
-				flex-basis: calc(65% - 2rem);
-				flex-grow: 0;
-			}
-
-			@media (max-width: 786px) {
-				.hero__text {
-					flex-basis: 100%;
-				}
-			}
-
-			.country-options {
-				list-style: none;
-				margin: 0;
-				padding: 0;
-				display: flex;
-				width: 448px;
-			}
-
-			@media (max-width: 786px) {
-				.country-options {
-					display: none;
-				}
-			}
-
-			.country-options__item {
-				flex-basis: 25%;
-				flex-grow: 1;
-				flex-shrink: 1;
-				transition: flex-basis var(--transiton);
-
-				display: flex;
-				flex-direction: column;
-				justify-content: flex-end;
-				align-items: flex-start;
-				padding: 1rem;
-
-				position: relative;
-				cursor: pointer;
-			}
-
-			.country-options__text {
-				color: #ffffff;
-				font-size: 24px;
-				opacity: 0;
-				position: absolute;
-				pointer-events: none;
-			}
-
-			.vertical-text {
-				transform: rotate(180deg);
-				position: absolute;
-				writing-mode: vertical-rl;
-				right: 1rem;
-				bottom: 1rem;
-				pointer-events: none;
-				opacity: 1;
-				transition: opacity var(--transiton);
-			}
-
-			.country-options__item.active {
-				flex-basis: 65%;
-			}
-
-			.country-options__item.active .country-options__text {
-				opacity: 1;
-			}
-
-			.country-options__item.active .vertical-text {
-				opacity: 0;
-			}
-
-			.country-options__item:first-child {
-				border-top-left-radius: 8px;
-				border-bottom-left-radius: 8px;
-			}
-
-			.country-options__item:not(:last-child) {
-				border-right: 1px solid #ffffff;
-			}
-
-			.country-options__item:last-child {
-				border-top-right-radius: 8px;
-				border-bottom-right-radius: 8px;
-			}
-
-			.country-options__item--turkey {
-				background:
-					linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
-					url(https://bookyogatours.ru/media/tour_images/files-455.jpeg);
-				background-repeat: no-repeat;
-				background-position: center;
-				background-size: cover;
-			}
-
-			.country-options__item--egypt {
-				background:
-					linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
-					url(https://mercury-europe.ru/mrlnks/mira08-1.jpg);
-				background-repeat: no-repeat;
-				background-position: center;
-				background-size: cover;
-			}
-
-			.country-options__item--uae {
-				background:
-					linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
-					url(https://rossoshru.ru/wp-content/uploads/2022/12/be1af0fab16d77586df5980dbf312d79.jpg);
-				background-repeat: no-repeat;
-				background-position: center;
-				background-size: cover;
-			}
-
-			.country-options__item--bahrein {
-				background:
-					linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
-					url(https://www.cruiz.ru/files/images/2manama_2509.jpg);
-				background-repeat: no-repeat;
-				background-position: center;
-				background-size: cover;
-			}
-		</style>
+		<link rel="stylesheet" href="/css/styledComponents/hero.css">
 		<article>
 			<div class="contenu">
 				<div class="hero__text">
@@ -495,7 +100,16 @@
 						бонусов CoralBonus
 						в&nbsp;подарок!
 					</p>
-					<button class="sunmar-button">Выбрать тур</button>
+					<button class="sunmar-button arrow arrow-down">
+						<span>Выбрать тур</span>
+						<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+							<g stroke-width="0" />
+							<g stroke-linecap="round" stroke-linejoin="round" />
+							<path
+								d="M18.293 15.29a1 1 0 0 0 0-1.415L13.4 8.988a2 2 0 0 0-2.828 0l-4.89 4.89a1 1 0 1 0 1.414 1.415l4.185-4.186a1 1 0 0 1 1.415 0l4.182 4.182a1 1 0 0 0 1.414 0Z"
+								fill="#fff" />
+						</svg>
+					</button>
 				</div>
 				<ul class="country-options">
 					<li class="country-options__item active country-options__item--turkey">
@@ -528,317 +142,60 @@
 			})
 		</script>
 	</section>
+	<section class="banner">
+		<link rel="stylesheet" href="/css/styledComponents/banner.css">
+		<article>
+			<div class="contenu">
+				<div style="--aspect-ratio:1480/283;" class="banner__wrapper">
+					<div class="banner__content">
+						<h3>Это рекламный баннер</h3>
+						<p>А я текст рекламный!</p>
+						<button class="sunmar-button">
+							<span>Выбрать тур</span>
+							<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+								<g stroke-width="0" />
+								<g stroke-linecap="round" stroke-linejoin="round" />
+								<path
+									d="M18.293 15.29a1 1 0 0 0 0-1.415L13.4 8.988a2 2 0 0 0-2.828 0l-4.89 4.89a1 1 0 1 0 1.414 1.415l4.185-4.186a1 1 0 0 1 1.415 0l4.182 4.182a1 1 0 0 0 1.414 0Z"
+									fill="#fff" />
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
 	<section class="benefits">
-		<style>
-			.benefits__grid {
-				--gap: 2rem;
-				display: flex;
-				justify-content: space-between;
-				gap: var(--gap);
-				margin-inline: auto;
-				max-width: 1100px;
-			}
-
-			@media (max-width: 786px) {
-				.benefits__grid {
-					flex-wrap: wrap;
-					justify-content: center;
-				}
-			}
-
-			.benefit {
-				flex-basis: 100%;
-				flex-grow: 0;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: 22px;
-			}
-
-			@media (max-width: 786px) {
-				.benefit {
-					flex-basis: calc(50% - var(--gap));
-				}
-			}
-
-			.benefit__icon {
-				width: clamp(80px, 6vw, 100px);
-			}
-
-			.benefit__icon svg {
-				width: 100%;
-				height: 100%;
-				display: block;
-			}
-
-			.benefit__text {
-				font-size: 1rem;
-				font-weight: 900;
-				text-align: center;
-			}
-		</style>
+		<link rel="stylesheet" href="/css/styledComponents/benefits.css">
 		<article>
 			<div class="contenu">
 				<div class="benefits__grid">
 					<div class="benefit">
-						<div class="benefit__icon">
-							<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g clip-path="url(#a)" stroke-width="2">
-									<circle cx="50" cy="50" r="49" stroke="#000" />
-									<path d="M44.794 63.227h10.258m-10.258 6.387h10.258" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="42.153" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="57.696" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="42.153" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="57.695" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<path transform="scale(1.00351 .99647) rotate(45 -39.62 82.237)" stroke="#F0AB00"
-										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
-									<path transform="scale(1.00351 .99647) rotate(45 -36.417 89.97)" stroke="#F0AB00"
-										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
-									<path
-										d="M43.646 55.094H33.133a4.8 4.8 0 0 0-4.8 4.8v11.773m28.021-16.573h10.513a4.8 4.8 0 0 1 4.8 4.8v11.773M56.883 35.724c.591 1.399.868 2.953.803 4.513a10.316 10.316 0 0 1-1.17 4.4c-.704 1.325-1.685 2.416-2.849 3.168-1.163.753-2.472 1.142-3.8 1.13-1.328-.011-2.631-.422-3.785-1.195-1.155-.772-2.121-1.88-2.809-3.216a10.351 10.351 0 0 1-1.116-4.42c-.045-1.561.25-3.11.86-4.499"
-										stroke="#000" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M42.152 29.533a1.2 1.2 0 0 1 1.2-1.2h13.143a1.2 1.2 0 0 1 1.2 1.2v5.7H42.152v-5.7Z"
-										stroke="#F0AB00" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M57.656 31.782h-9.034" stroke="#F0AB00" stroke-linecap="round" />
-								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M0 0h100v100H0z" />
-									</clipPath>
-								</defs>
-							</svg>
-						</div>
-						<span class="benefit__text">Безупречный сервис и ненавязчивый персонал</span>
+						<div class="benefit__icon icon-1"></div>
+						<span class="benefit__text">Кокосовое что-то с&nbsp;лимоном</span>
 					</div>
 					<div class="benefit">
-						<div class="benefit__icon">
-							<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g clip-path="url(#a)" stroke-width="2">
-									<circle cx="50" cy="50" r="49" stroke="#000" />
-									<path d="M44.794 63.227h10.258m-10.258 6.387h10.258" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="42.153" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="57.696" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="42.153" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="57.695" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<path transform="scale(1.00351 .99647) rotate(45 -39.62 82.237)" stroke="#F0AB00"
-										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
-									<path transform="scale(1.00351 .99647) rotate(45 -36.417 89.97)" stroke="#F0AB00"
-										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
-									<path
-										d="M43.646 55.094H33.133a4.8 4.8 0 0 0-4.8 4.8v11.773m28.021-16.573h10.513a4.8 4.8 0 0 1 4.8 4.8v11.773M56.883 35.724c.591 1.399.868 2.953.803 4.513a10.316 10.316 0 0 1-1.17 4.4c-.704 1.325-1.685 2.416-2.849 3.168-1.163.753-2.472 1.142-3.8 1.13-1.328-.011-2.631-.422-3.785-1.195-1.155-.772-2.121-1.88-2.809-3.216a10.351 10.351 0 0 1-1.116-4.42c-.045-1.561.25-3.11.86-4.499"
-										stroke="#000" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M42.152 29.533a1.2 1.2 0 0 1 1.2-1.2h13.143a1.2 1.2 0 0 1 1.2 1.2v5.7H42.152v-5.7Z"
-										stroke="#F0AB00" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M57.656 31.782h-9.034" stroke="#F0AB00" stroke-linecap="round" />
-								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M0 0h100v100H0z" />
-									</clipPath>
-								</defs>
-							</svg>
-						</div>
-						<span class="benefit__text">Безупречный сервис и ненавязчивый персонал</span>
+						<div class="benefit__icon icon-2"></div>
+						<span class="benefit__text">Обгоришь внатуре жи&nbsp;ес</span>
 					</div>
 					<div class="benefit">
-						<div class="benefit__icon">
-							<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g clip-path="url(#a)" stroke-width="2">
-									<circle cx="50" cy="50" r="49" stroke="#000" />
-									<path d="M44.794 63.227h10.258m-10.258 6.387h10.258" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="42.153" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="57.696" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="42.153" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="57.695" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<path transform="scale(1.00351 .99647) rotate(45 -39.62 82.237)" stroke="#F0AB00"
-										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
-									<path transform="scale(1.00351 .99647) rotate(45 -36.417 89.97)" stroke="#F0AB00"
-										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
-									<path
-										d="M43.646 55.094H33.133a4.8 4.8 0 0 0-4.8 4.8v11.773m28.021-16.573h10.513a4.8 4.8 0 0 1 4.8 4.8v11.773M56.883 35.724c.591 1.399.868 2.953.803 4.513a10.316 10.316 0 0 1-1.17 4.4c-.704 1.325-1.685 2.416-2.849 3.168-1.163.753-2.472 1.142-3.8 1.13-1.328-.011-2.631-.422-3.785-1.195-1.155-.772-2.121-1.88-2.809-3.216a10.351 10.351 0 0 1-1.116-4.42c-.045-1.561.25-3.11.86-4.499"
-										stroke="#000" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M42.152 29.533a1.2 1.2 0 0 1 1.2-1.2h13.143a1.2 1.2 0 0 1 1.2 1.2v5.7H42.152v-5.7Z"
-										stroke="#F0AB00" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M57.656 31.782h-9.034" stroke="#F0AB00" stroke-linecap="round" />
-								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M0 0h100v100H0z" />
-									</clipPath>
-								</defs>
-							</svg>
-						</div>
-						<span class="benefit__text">Безупречный сервис и ненавязчивый персонал</span>
+						<div class="benefit__icon icon-3"></div>
+						<span class="benefit__text">Буль-буль дал&nbsp;&mdash; ушел</span>
 					</div>
 					<div class="benefit">
-						<div class="benefit__icon">
-							<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g clip-path="url(#a)" stroke-width="2">
-									<circle cx="50" cy="50" r="49" stroke="#000" />
-									<path d="M44.794 63.227h10.258m-10.258 6.387h10.258" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="42.153" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="57.696" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="42.153" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="57.695" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<path transform="scale(1.00351 .99647) rotate(45 -39.62 82.237)" stroke="#F0AB00"
-										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
-									<path transform="scale(1.00351 .99647) rotate(45 -36.417 89.97)" stroke="#F0AB00"
-										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
-									<path
-										d="M43.646 55.094H33.133a4.8 4.8 0 0 0-4.8 4.8v11.773m28.021-16.573h10.513a4.8 4.8 0 0 1 4.8 4.8v11.773M56.883 35.724c.591 1.399.868 2.953.803 4.513a10.316 10.316 0 0 1-1.17 4.4c-.704 1.325-1.685 2.416-2.849 3.168-1.163.753-2.472 1.142-3.8 1.13-1.328-.011-2.631-.422-3.785-1.195-1.155-.772-2.121-1.88-2.809-3.216a10.351 10.351 0 0 1-1.116-4.42c-.045-1.561.25-3.11.86-4.499"
-										stroke="#000" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M42.152 29.533a1.2 1.2 0 0 1 1.2-1.2h13.143a1.2 1.2 0 0 1 1.2 1.2v5.7H42.152v-5.7Z"
-										stroke="#F0AB00" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M57.656 31.782h-9.034" stroke="#F0AB00" stroke-linecap="round" />
-								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M0 0h100v100H0z" />
-									</clipPath>
-								</defs>
-							</svg>
-						</div>
-						<span class="benefit__text">Безупречный сервис и ненавязчивый персонал</span>
+						<div class="benefit__icon icon-4"></div>
+						<span class="benefit__text">Бархатные хаты</span>
 					</div>
 					<div class="benefit">
-						<div class="benefit__icon">
-							<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g clip-path="url(#a)" stroke-width="2">
-									<circle cx="50" cy="50" r="49" stroke="#000" />
-									<path d="M44.794 63.227h10.258m-10.258 6.387h10.258" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="42.153" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="57.696" cy="63.19" rx="1.67" ry="1.658" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="42.153" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<ellipse cx="57.695" cy="69.614" rx="1.672" ry="1.661" stroke="#000" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<path transform="scale(1.00351 .99647) rotate(45 -39.62 82.237)" stroke="#F0AB00"
-										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
-									<path transform="scale(1.00351 .99647) rotate(45 -36.417 89.97)" stroke="#F0AB00"
-										stroke-linecap="round" stroke-linejoin="round" d="M0 0h4.531v4.531H0z" />
-									<path
-										d="M43.646 55.094H33.133a4.8 4.8 0 0 0-4.8 4.8v11.773m28.021-16.573h10.513a4.8 4.8 0 0 1 4.8 4.8v11.773M56.883 35.724c.591 1.399.868 2.953.803 4.513a10.316 10.316 0 0 1-1.17 4.4c-.704 1.325-1.685 2.416-2.849 3.168-1.163.753-2.472 1.142-3.8 1.13-1.328-.011-2.631-.422-3.785-1.195-1.155-.772-2.121-1.88-2.809-3.216a10.351 10.351 0 0 1-1.116-4.42c-.045-1.561.25-3.11.86-4.499"
-										stroke="#000" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M42.152 29.533a1.2 1.2 0 0 1 1.2-1.2h13.143a1.2 1.2 0 0 1 1.2 1.2v5.7H42.152v-5.7Z"
-										stroke="#F0AB00" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M57.656 31.782h-9.034" stroke="#F0AB00" stroke-linecap="round" />
-								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M0 0h100v100H0z" />
-									</clipPath>
-								</defs>
-							</svg>
-						</div>
-						<span class="benefit__text">Безупречный сервис и ненавязчивый персонал</span>
+						<div class="benefit__icon icon-5"></div>
+						<span class="benefit__text">С&nbsp;кайфом!</span>
 					</div>
 				</div>
 			</div>
 		</article>
 	</section>
 	<section class="grid">
-		<style>
-			.grid__wrapper {
-				display: flex;
-				flex-direction: column;
-				gap: 60px;
-			}
-
-			.grid-row__content {
-				display: grid;
-				grid-auto-flow: column;
-				grid-auto-columns: 1fr;
-				grid-column-gap: 2.25rem;
-			}
-
-			@media (max-width: 768px) {
-				.grid-row__content {
-					grid-auto-flow: row;
-					grid-row-gap: 2.25em;
-				}
-			}
-
-			.grid-row__text {
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: flex-start;
-			}
-
-			.grid-row__text--left {
-				grid-column: 1/2;
-			}
-
-			.grid-row__text span {
-				text-align: left;
-				display: block;
-				margin-bottom: 5px;
-				font-size: calc(var(--h3) / 2.5);
-			}
-
-			.grid-row__text h3 {
-				text-align: left;
-				margin-top: 0;
-				line-height: 1;
-				margin-bottom: clamp(24px, 3vw, 40px);
-			}
-
-			.grid-row__text p {
-				text-align: left;
-				margin-top: 0;
-				font-size: var(--p);
-				line-height: 1.5;
-				margin-bottom: clamp(24px, 3vw, 40px);
-			}
-
-			.grid-row__img img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				border-radius: 2.5rem;
-			}
-
-			.grid-row__img--right {
-				grid-column: 2/2;
-			}
-
-			@media (max-width: 768px) {
-				.grid-row__img img {
-					border-radius: 20px;
-				}
-
-				.grid-row__img--right {
-					grid-column: span 2;
-				}
-
-				.grid-row__text--left {
-					grid-column: span 2;
-				}
-			}
-		</style>
+		<link rel="stylesheet" href="/css/styledComponents/grid.css">
 		<article>
 			<div class="contenu">
 				<div class="grid__wrapper">
@@ -851,12 +208,22 @@
 							<div class="grid-row__text">
 								<span>Анталийское побережье</span>
 								<h3>Анталья</h3>
-								<p>Крупный и очень красивый город со старым портом. Центр города наполнен мощёными улочками с уличными
-									кафе, крепостными стенами 2 века и восточными базарами, где продают всё — от пишмание до махровых
-									полотенец. В окрестностях Антальи низвергается Дюденский водопад, к которому можно подплыть на
+								<p>Крупный и&nbsp;очень красивый город со&nbsp;старым портом. Центр города наполнен мощёными улочками
+									с&nbsp;уличными
+									кафе, крепостными стенами 2&nbsp;века и&nbsp;восточными базарами, где продают всё&nbsp;&mdash;
+									от&nbsp;пишмание до&nbsp;махровых
+									полотенец. В&nbsp;окрестностях Антальи низвергается Дюденский водопад, к&nbsp;которому можно подплыть
+									на
 									комфортабельной яхте.</p>
-								<button class="sunmar-button sunmar-button--anchor">
-									Выбрать тур
+								<button class="sunmar-button">
+									<span>Выбрать тур</span>
+									<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+										<g stroke-width="0" />
+										<g stroke-linecap="round" stroke-linejoin="round" />
+										<path
+											d="M18.293 15.29a1 1 0 0 0 0-1.415L13.4 8.988a2 2 0 0 0-2.828 0l-4.89 4.89a1 1 0 1 0 1.414 1.415l4.185-4.186a1 1 0 0 1 1.415 0l4.182 4.182a1 1 0 0 0 1.414 0Z"
+											fill="#fff" />
+									</svg>
 								</button>
 							</div>
 						</div>
@@ -872,12 +239,21 @@
 								<h3>Анталья</h3>
 								<p>Крупный и&nbsp;очень красивый город со&nbsp;старым портом. Центр города наполнен мощёными улочками
 									с&nbsp;уличными
-									кафе, крепостными стенами 2&nbsp;века и&nbsp;восточными базарами, где продают всё&nbsp;&mdash;
+									кафе, крепостными стенами 2&nbsp;века и&nbsp;восточными базарами, где продают всё &mdash;
 									от&nbsp;пишмание до&nbsp;махровых
 									полотенец. В&nbsp;окрестностях Антальи низвергается Дюденский водопад, к&nbsp;которому можно подплыть
 									на
 									комфортабельной яхте.</p>
-								<button class="sunmar-button">Выбрать тур</button>
+								<button class="sunmar-button">
+									<span>Выбрать тур</span>
+									<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+										<g stroke-width="0" />
+										<g stroke-linecap="round" stroke-linejoin="round" />
+										<path
+											d="M18.293 15.29a1 1 0 0 0 0-1.415L13.4 8.988a2 2 0 0 0-2.828 0l-4.89 4.89a1 1 0 1 0 1.414 1.415l4.185-4.186a1 1 0 0 1 1.415 0l4.182 4.182a1 1 0 0 0 1.414 0Z"
+											fill="#fff" />
+									</svg>
+								</button>
 							</div>
 						</div>
 					</div>
@@ -886,131 +262,7 @@
 		</article>
 	</section>
 	<section class="accordion">
-		<style>
-			.accordion-list {
-				display: flex;
-				gap: 2rem;
-				list-style: none;
-				font-family: var(--sunmar-font);
-				margin: 0;
-				padding: 0;
-			}
-
-			@media (max-width: 768px) {
-				.accordion-list {
-					flex-direction: column;
-				}
-			}
-
-			.accordion-list__item {
-				height: fit-content;
-				flex-basis: 100%;
-				flex-grow: 0;
-				overflow: hidden;
-				box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-				border-radius: 16px;
-				/* -webkit-mask-image: radial-gradient(white, black); */
-			}
-
-			.accordion-list__label {
-				position: relative;
-				display: block;
-				width: 100%;
-				background-color: var(--white);
-				color: var(--black);
-				cursor: pointer;
-				border: none;
-				padding: 1.7rem;
-				border-radius: 16px 16px 16px 16px;
-				transition:
-					background-color var(--transiton),
-					transform var(--transiton),
-					border-radius var(--transiton);
-
-				font-weight: bold;
-				font-size: calc(var(--h3) / 1.5);
-			}
-
-			.accordion-list__label::after {
-				content: "";
-				position: absolute;
-				width: 40px;
-				height: 40px;
-				top: 50%;
-				right: 0;
-				background-image: url("data:image/svg+xml,%3Csvg width='64px' height='64px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='%23ffffff'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M18.2929 15.2893C18.6834 14.8988 18.6834 14.2656 18.2929 13.8751L13.4007 8.98766C12.6195 8.20726 11.3537 8.20757 10.5729 8.98835L5.68257 13.8787C5.29205 14.2692 5.29205 14.9024 5.68257 15.2929C6.0731 15.6835 6.70626 15.6835 7.09679 15.2929L11.2824 11.1073C11.673 10.7168 12.3061 10.7168 12.6966 11.1073L16.8787 15.2893C17.2692 15.6798 17.9024 15.6798 18.2929 15.2893Z' fill='%23ffffff'%3E%3C/path%3E%3C/g%3E%3C/svg%3E"), var(--sunmar-ramp);
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;
-				transform: translate(-50%, -50%) rotate(0);
-				transform-origin: center;
-				transition: transform var(--transiton);
-				border-radius: 100%;
-			}
-
-			.accordion__content {
-				background-color: var(--white);
-				color: var(--black);
-				border-bottom-left-radius: 16px;
-				border-bottom-right-radius: 16px;
-				display: grid;
-				grid-template-rows: 0fr;
-				opacity: 0;
-				transition: grid-template-rows var(--transiton), opacity var(--transiton);
-				will-change: grid-template-rows;
-			}
-
-			.accordion__content p {
-				box-sizing: content-box !important;
-				font-size: calc(var(--p) / 1.3);
-				text-align: left;
-				overflow: hidden;
-				padding-inline: 1.5rem;
-				padding-block: 0rem;
-				transition: padding-block var(--transiton);
-				margin: 0;
-			}
-
-			/* @media (hover:hover) {
-				.accordion-list__label:hover {
-					border-radius: 8px 8px 0 0;
-				}
-
-				.accordion-list__label:hover+.accordion__content {
-					grid-template-rows: 1fr;
-					opacity: 1;
-				}
-
-				.accordion-list__label:hover+.accordion__content p {
-					padding-block: 1.5rem;
-				}
-
-				.accordion-list__label:hover::after {
-					transform: translate(-50%, -50%) rotate(180deg);
-				}
-			} */
-
-			.accordion-list__label:active {
-				transform: translateY(3px);
-			}
-
-			.accordion__toggle:checked~.accordion-list__label {
-				border-radius: 8px 8px 0 0;
-			}
-
-			.accordion__toggle:checked~.accordion-list__label::after {
-				transform: translate(-50%, -50%) rotate(180deg);
-			}
-
-			.accordion__toggle:checked~.accordion__content {
-				grid-template-rows: 1fr;
-				opacity: 1;
-			}
-
-			.accordion__toggle:checked~.accordion__content p {
-				padding-block: 1.5rem;
-			}
-		</style>
+		<link rel="stylesheet" href="/css/styledComponents/accordion.css">
 		<article>
 			<div class="contenu">
 				<div class="accordion__wrapper">
@@ -1019,7 +271,6 @@
 							<input class="visually-hidden accordion__toggle" type="checkbox" name="accordion" id="toggle1">
 							<label class="accordion-list__label" for="toggle1">
 								Accordion 1
-
 							</label>
 							<div class="accordion__content">
 								<p>
@@ -1054,7 +305,6 @@
 						</li>
 					</ul>
 				</div>
-
 			</div>
 		</article>
 	</section>

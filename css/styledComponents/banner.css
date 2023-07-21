@@ -1,0 +1,26 @@
+.banner__wrapper {
+	background-image: url('../../img/banner-test.png');
+  background-image: -webkit-image-set(url('../../img/banner-test.png') 2x);
+  background-image: image-set(url('../../img/banner-test.png') 2x);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	border-radius: 8px;
+}
+
+.banner__content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	width: 90%;
+	padding-inline: 10%;
+	gap: clamp(1.13rem, calc(0.13rem + 2.08vw), 2.00rem);
+}
+
+.banner__content h3,
+.banner__content p {
+	margin: 0;
+	line-height: 1;
+	color: white;
+}

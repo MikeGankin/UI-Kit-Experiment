@@ -1,7 +1,7 @@
 :root {
 	--main-red: #D8242A;
 	--main-navy: #0E2855;
-	--main-gradient: linear-gradient(225deg, #E7317D 0%, #D8242A 100%);
+	--sunmar-ramp: linear-gradient(225deg, #E7317D 0%, #D8242A 100%);
 	--main-bg: #FAFAFA;
 	--white: #ffffff;
 	--black: #000000;
