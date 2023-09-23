@@ -87,15 +87,15 @@ span {
 	align-items: center;
 }
 
-.arrow > span {
+.arrow>span {
 	font-size: 1em;
 }
 
-.sunmar-button > svg {
+.sunmar-button>svg {
 	display: none;
 }
 
-.arrow > svg {
+.arrow>svg {
 	display: block;
 	width: 1.2em;
 	height: 1.2em;
@@ -121,14 +121,41 @@ span {
 }
 
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
+.aspect-ratio {
+	--aspect-x: 16;
+	--aspect-y: 9;
+	position: relative;
+}
+@media (max-width: 786px) {
+	.aspect-ratio {
+		--aspect-x: 3;
+		--aspect-y: 4;
+	}
+}
+
+.aspect-ratio::before {
+	display: block;
+	content: "";
+	width: 100%;
+	padding-top: (var(--aspect-y) / var(--aspect-x)) * 100%;
+}
+
+.aspect-ratio .wrapper {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 }
